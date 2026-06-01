@@ -41,6 +41,22 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s}
+  /* appealing animated background */
+  .bg-fx{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+  .bg-fx::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(40% 50% at 15% 20%, color-mix(in srgb,var(--accent) 22%,transparent), transparent 70%),
+    radial-gradient(35% 45% at 85% 15%, color-mix(in srgb,var(--accent-2) 26%,transparent), transparent 70%),
+    radial-gradient(45% 50% at 75% 85%, color-mix(in srgb,var(--accent) 16%,transparent), transparent 70%)}
+  .orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;animation:float 18s ease-in-out infinite}
+  .orb.o1{width:420px;height:420px;top:-120px;left:-80px;background:var(--accent)}
+  .orb.o2{width:360px;height:360px;top:30%;right:-100px;background:var(--accent-2);animation-delay:-6s}
+  .orb.o3{width:300px;height:300px;bottom:-100px;left:30%;background:var(--accent);animation-delay:-12s}
+  @keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,25px) scale(.95)}}
+  /* subtle grain/grid overlay */
+  .bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:linear-gradient(color-mix(in srgb,var(--ink) 4%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--ink) 4%,transparent) 1px,transparent 1px);
+    background-size:48px 48px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 80%)}
+  @media(prefers-reduced-motion:reduce){.orb{animation:none}}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
   .accent{color:var(--accent)}
@@ -152,9 +168,19 @@
 
   /* scroll progress */
   #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:100;transition:width .1s}
+
+  /* icons */
+  svg{display:block}
+  .skill-card .ico{color:var(--accent)}
+  .skill-card .ico svg{width:24px;height:24px}
+  .proj .banner{color:#fff}
+  .proj .banner svg{width:38px;height:38px}
+  .about-list .bi{flex:0 0 auto;color:var(--accent);width:20px;height:20px;margin-top:2px}
 </style>
 </head>
 <body>
+<div class="bg-fx"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
+<div class="bg-grid"></div>
 <div id="progress"></div>
 <header>
   <div class="wrap">
@@ -210,10 +236,10 @@
         <div class="about-card reveal">
           <h3>At a glance</h3>
           <ul class="about-list">
-            <li>🎯 <span><b>Focus:</b> People analytics &amp; HRIS operations</span></li>
-            <li>🛠️ <span><b>Stack:</b> SQL, Power BI, Excel, Workday</span></li>
-            <li>📍 <span><b>Works with:</b> HR, Finance, IT, Leadership</span></li>
-            <li>✉️ <span><b>Email:</b> bajaakira@gmail.com</span></li>
+            <li><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> <span><b>Focus:</b> People analytics &amp; HRIS operations</span></li>
+            <li><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.3 5.3L3 18l3 3 6.4-6.4a4 4 0 0 0 5.3-5.3l-2.8 2.8-2.1-.7-.7-2.1z"/></svg> <span><b>Stack:</b> SQL, Power BI, Excel, Workday</span></li>
+            <li><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> <span><b>Works with:</b> HR, Finance, IT, Leadership</span></li>
+            <li><svg class="bi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> <span><b>Email:</b> bajaakira@gmail.com</span></li>
           </ul>
         </div>
       </div>
@@ -228,12 +254,12 @@
         <p>A blend of analytical depth and systems know-how — built for accuracy, speed, and scale.</p>
       </div>
       <div class="skills-grid">
-        <div class="skill-card reveal"><div class="ico">📊</div><h3>Data Analysis &amp; Reporting</h3><p>Designing metrics, building dashboards, and surfacing trends that drive workforce decisions.</p><div class="tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Excel</span></div></div>
-        <div class="skill-card reveal"><div class="ico">⚙️</div><h3>HRIS Administration</h3><p>Configuring, maintaining, and optimizing HR systems with airtight data integrity.</p><div class="tags"><span class="tag">Workday</span><span class="tag">SuccessFactors</span><span class="tag">BambooHR</span></div></div>
-        <div class="skill-card reveal"><div class="ico">🔄</div><h3>Process Automation</h3><p>Eliminating manual work with automated workflows, validations, and recurring reports.</p><div class="tags"><span class="tag">Python</span><span class="tag">Power Automate</span><span class="tag">APIs</span></div></div>
-        <div class="skill-card reveal"><div class="ico">🧮</div><h3>People Analytics</h3><p>Retention, attrition, DEI, and compensation analysis that informs strategy.</p><div class="tags"><span class="tag">Forecasting</span><span class="tag">Statistics</span><span class="tag">Modeling</span></div></div>
-        <div class="skill-card reveal"><div class="ico">🔐</div><h3>Data Governance</h3><p>Ensuring privacy, compliance, and audit-readiness across all people data.</p><div class="tags"><span class="tag">GDPR</span><span class="tag">Compliance</span><span class="tag">Auditing</span></div></div>
-        <div class="skill-card reveal"><div class="ico">🤝</div><h3>Stakeholder Partnership</h3><p>Translating complex data into clear narratives for HR, Finance, and leadership.</p><div class="tags"><span class="tag">Storytelling</span><span class="tag">Presentation</span><span class="tag">Strategy</span></div></div>
+        <div class="skill-card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></div><h3>Data Analysis &amp; Reporting</h3><p>Designing metrics, building dashboards, and surfacing trends that drive workforce decisions.</p><div class="tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Excel</span></div></div>
+        <div class="skill-card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><h3>HRIS Administration</h3><p>Configuring, maintaining, and optimizing HR systems with airtight data integrity.</p><div class="tags"><span class="tag">Workday</span><span class="tag">SuccessFactors</span><span class="tag">BambooHR</span></div></div>
+        <div class="skill-card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-6.7-3"/><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 6.7 3"/><path d="M21 3v6h-6"/><path d="M3 21v-6h6"/></svg></div><h3>Process Automation</h3><p>Eliminating manual work with automated workflows, validations, and recurring reports.</p><div class="tags"><span class="tag">Python</span><span class="tag">Power Automate</span><span class="tag">APIs</span></div></div>
+        <div class="skill-card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>People Analytics</h3><p>Retention, attrition, DEI, and compensation analysis that informs strategy.</p><div class="tags"><span class="tag">Forecasting</span><span class="tag">Statistics</span><span class="tag">Modeling</span></div></div>
+        <div class="skill-card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg></div><h3>Data Governance</h3><p>Ensuring privacy, compliance, and audit-readiness across all people data.</p><div class="tags"><span class="tag">GDPR</span><span class="tag">Compliance</span><span class="tag">Auditing</span></div></div>
+        <div class="skill-card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg></div><h3>Stakeholder Partnership</h3><p>Translating complex data into clear narratives for HR, Finance, and leadership.</p><div class="tags"><span class="tag">Storytelling</span><span class="tag">Presentation</span><span class="tag">Strategy</span></div></div>
       </div>
     </div>
   </section>
@@ -246,10 +272,10 @@
         <p>A few representative projects. Replace with your own and link to dashboards or write-ups.</p>
       </div>
       <div class="proj-grid">
-        <div class="proj reveal"><div class="banner"><span>📈</span></div><div class="body"><h3>Executive People-Analytics Dashboard</h3><p>Unified headcount, attrition, and DEI metrics into one real-time leadership view in Power BI.</p><span class="metric">Adopted org-wide</span></div></div>
-        <div class="proj reveal"><div class="banner"><span>⚡</span></div><div class="body"><h3>HRIS Reporting Automation</h3><p>Replaced manual monthly reporting with automated pipelines and validation checks.</p><span class="metric">−60% reporting time</span></div></div>
-        <div class="proj reveal"><div class="banner"><span>🔍</span></div><div class="body"><h3>Compensation Equity Analysis</h3><p>Statistical pay-gap analysis that informed a company-wide compensation review.</p><span class="metric">Audit-ready</span></div></div>
-        <div class="proj reveal"><div class="banner"><span>🧹</span></div><div class="body"><h3>HRIS Migration &amp; Data Cleanup</h3><p>Led data validation and cleanup across 12k+ records during a platform migration.</p><span class="metric">99% accuracy</span></div></div>
+        <div class="proj reveal"><div class="banner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/><path d="M19 9h-4"/><path d="M19 9v4"/></svg></div><div class="body"><h3>Executive People-Analytics Dashboard</h3><p>Unified headcount, attrition, and DEI metrics into one real-time leadership view in Power BI.</p><span class="metric">Adopted org-wide</span></div></div>
+        <div class="proj reveal"><div class="banner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="body"><h3>HRIS Reporting Automation</h3><p>Replaced manual monthly reporting with automated pipelines and validation checks.</p><span class="metric">−60% reporting time</span></div></div>
+        <div class="proj reveal"><div class="banner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><div class="body"><h3>Compensation Equity Analysis</h3><p>Statistical pay-gap analysis that informed a company-wide compensation review.</p><span class="metric">Audit-ready</span></div></div>
+        <div class="proj reveal"><div class="banner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg></div><div class="body"><h3>HRIS Migration &amp; Data Cleanup</h3><p>Led data validation and cleanup across 12k+ records during a platform migration.</p><span class="metric">99% accuracy</span></div></div>
       </div>
     </div>
   </section>
