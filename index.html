@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jel — Senior Data Analyst &amp; HRIS Specialist</title>
+<meta name="description" content="Portfolio of Jel, Senior Data Analyst and HRIS Specialist — turning workforce data into clear, actionable decisions." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfbfc;
+    --bg-soft:#f3f4f6;
+    --surface:#ffffff;
+    --ink:#0b1220;
+    --ink-soft:#525c6b;
+    --line:#e8eaee;
+    --accent:#3056d3;
+    --accent-2:#5b8def;
+    --accent-soft:#eef2fe;
+    --radius:18px;
+    --max:1100px;
+    --shadow-sm:0 1px 2px rgba(11,18,32,.05);
+    --shadow:0 4px 14px rgba(11,18,32,.06),0 20px 48px rgba(11,18,32,.07);
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    --display:'Fraunces',Georgia,serif;
+  }
+  html[data-theme="dark"]{
+    --bg:#0a0d14;
+    --bg-soft:#11151f;
+    --surface:#11151f;
+    --ink:#eef1f6;
+    --ink-soft:#9aa4b4;
+    --line:#1f2633;
+    --accent:#6f96ff;
+    --accent-2:#8fb0ff;
+    --accent-soft:#161d2e;
+    --shadow:0 4px 14px rgba(0,0,0,.4),0 20px 48px rgba(0,0,0,.5);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  .accent{color:var(--accent)}
+  ::selection{background:var(--accent);color:#fff}
+
+  /* Nav */
+  header{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{font-weight:800;letter-spacing:-.03em;font-size:1.15rem}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:30px;font-size:.93rem;color:var(--ink-soft)}
+  .nav-links a{position:relative;transition:color .2s}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--accent);transition:width .25s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a:hover::after{width:100%}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .theme-btn{background:var(--bg-soft);border:1px solid var(--line);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:transform .2s,border-color .2s;color:var(--ink)}
+  .theme-btn:hover{transform:rotate(20deg);border-color:var(--accent)}
+  .nav-cta{background:var(--ink);color:var(--bg);padding:9px 18px;border-radius:999px;font-size:.9rem;font-weight:600;transition:transform .15s,opacity .2s}
+  .nav-cta:hover{opacity:.88;transform:translateY(-1px)}
+  @media(max-width:760px){.nav-links{display:none}.nav-cta{display:none}}
+
+  /* Hero */
+  .hero{position:relative;padding:104px 0 80px;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-200px;right:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,var(--accent-2),transparent 65%);opacity:.18;pointer-events:none}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;background:var(--accent-soft);color:var(--accent);font-size:.82rem;font-weight:600;padding:7px 15px;border-radius:999px;margin-bottom:26px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 25%,transparent)}
+  .hero h1{font-family:var(--display);font-weight:600;font-size:clamp(2.5rem,6vw,4.4rem);line-height:1.04;letter-spacing:-.02em;margin-bottom:24px}
+  .hero p.lead{font-size:clamp(1.05rem,2vw,1.28rem);color:var(--ink-soft);max-width:600px;margin-bottom:38px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{padding:14px 28px;border-radius:999px;font-weight:600;font-size:.96rem;transition:transform .15s,box-shadow .25s,opacity .2s;cursor:pointer;border:0;display:inline-flex;align-items:center;gap:8px}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 8px 22px color-mix(in srgb,var(--accent) 35%,transparent)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px color-mix(in srgb,var(--accent) 45%,transparent)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:72px;border-top:1px solid var(--line);padding-top:38px}
+  .stat .num{font-family:var(--display);font-size:2.1rem;font-weight:600;letter-spacing:-.02em}
+  .stat .lbl{font-size:.85rem;color:var(--ink-soft)}
+  @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr);gap:28px}}
+
+  section{padding:88px 0}
+  .sec-head{margin-bottom:52px;max-width:660px}
+  .kicker{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:14px}
+  .sec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-.01em;margin-bottom:14px}
+  .sec-head p{color:var(--ink-soft)}
+
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
+  .about-grid p{color:var(--ink-soft);margin-bottom:18px}
+  .about-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-sm)}
+  .about-card h3{font-size:1rem;margin-bottom:20px}
+  .about-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+  .about-list li{display:flex;gap:12px;font-size:.94rem;color:var(--ink-soft)}
+  .about-list b{color:var(--ink);font-weight:600}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:30px}}
+
+  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .skill-card{border:1px solid var(--line);border-radius:var(--radius);padding:28px;background:var(--surface);transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
+  .skill-card::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-soft),transparent 60%);opacity:0;transition:opacity .25s}
+  .skill-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:transparent}
+  .skill-card:hover::after{opacity:1}
+  .skill-card>*{position:relative;z-index:1}
+  .skill-card .ico{width:46px;height:46px;border-radius:13px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:18px}
+  .skill-card h3{font-size:1.06rem;margin-bottom:8px}
+  .skill-card p{font-size:.9rem;color:var(--ink-soft)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .tag{font-size:.77rem;background:var(--bg-soft);border:1px solid var(--line);padding:4px 11px;border-radius:999px;color:var(--ink-soft)}
+  @media(max-width:760px){.skills-grid{grid-template-columns:1fr}}
+
+  /* Projects */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .proj{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden;transition:transform .25s,box-shadow .25s}
+  .proj:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .proj .banner{height:120px;background:linear-gradient(135deg,var(--accent),var(--accent-2));position:relative;display:flex;align-items:flex-end;padding:16px}
+  .proj .banner span{font-size:2rem}
+  .proj .body{padding:24px}
+  .proj .body h3{font-size:1.12rem;margin-bottom:8px}
+  .proj .body p{font-size:.92rem;color:var(--ink-soft);margin-bottom:14px}
+  .metric{display:inline-block;font-size:.8rem;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:4px 11px;border-radius:999px}
+  @media(max-width:700px){.proj-grid{grid-template-columns:1fr}}
+
+  .timeline{position:relative;border-left:2px solid var(--line);margin-left:8px}
+  .tl-item{position:relative;padding:0 0 42px 34px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{content:"";position:absolute;left:-9px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+  .tl-date{font-size:.82rem;font-weight:600;color:var(--accent);margin-bottom:4px}
+  .tl-item h3{font-size:1.12rem;margin-bottom:2px}
+  .tl-item .org{font-size:.92rem;color:var(--ink-soft);margin-bottom:10px}
+  .tl-item ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:.93rem}
+  .tl-item li{margin-bottom:5px}
+
+  .contact{background:linear-gradient(135deg,#0b1220,#1a2540);color:#fff;border-radius:26px;padding:68px 48px;text-align:center;position:relative;overflow:hidden}
+  .contact::before{content:"";position:absolute;top:-100px;left:-60px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,var(--accent-2),transparent 65%);opacity:.3}
+  .contact>*{position:relative;z-index:1}
+  .contact h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:16px}
+  .contact p{color:#cbd5e1;max-width:480px;margin:0 auto 34px}
+  .contact-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-light{background:#fff;color:#0b1220}
+  .btn-light:hover{transform:translateY(-2px)}
+  .btn-outline-light{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+  .btn-outline-light:hover{border-color:#fff}
+  @media(max-width:640px){.contact{padding:50px 24px}}
+
+  footer{padding:42px 0;text-align:center;color:var(--ink-soft);font-size:.88rem;border-top:1px solid var(--line)}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+  /* scroll progress */
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:100;transition:width .1s}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo">Jel<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-right">
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button>
+        <a href="#contact" class="nav-cta">Get in touch</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow reveal"><span class="dot"></span> Senior Data Analyst · HRIS Specialist</span>
+      <h1 class="reveal">Turning workforce data into <span class="accent">decisions people trust.</span></h1>
+      <p class="lead reveal">I'm Jel — I bridge people and systems, transforming messy HR data into clean dashboards, reliable HRIS workflows, and insights leaders actually act on.</p>
+      <div class="hero-actions reveal">
+        <a href="#contact" class="btn btn-primary">Let's work together →</a>
+        <a href="#work" class="btn btn-ghost">See my work</a>
+      </div>
+      <div class="stats">
+        <div class="stat reveal"><div class="num" data-count="8" data-suffix="+">0</div><div class="lbl">Years in analytics &amp; HRIS</div></div>
+        <div class="stat reveal"><div class="num" data-count="50" data-suffix="+">0</div><div class="lbl">Dashboards delivered</div></div>
+        <div class="stat reveal"><div class="num" data-count="12" data-suffix="k+">0</div><div class="lbl">Employee records managed</div></div>
+        <div class="stat reveal"><div class="num" data-count="99" data-suffix="%">0</div><div class="lbl">Data accuracy maintained</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">About</div>
+        <h2>People-first analytics, engineered for clarity.</h2>
+        <p>I sit at the intersection of HR, data, and systems — making sure the numbers are right, the systems run smoothly, and the story is easy to understand.</p>
+      </div>
+      <div class="about-grid">
+        <div class="reveal">
+          <p>As a Senior Data Analyst and HRIS specialist, I design the pipelines and dashboards that turn raw workforce data into a clear picture of headcount, retention, compensation equity, and operational health.</p>
+          <p>On the systems side, I configure and maintain HRIS platforms, automate manual processes, safeguard data integrity, and partner with HR, Finance, and IT to keep everything aligned and audit-ready.</p>
+          <p>My focus is always the same: accurate data, reliable systems, and insights that help leaders make confident, fair decisions.</p>
+        </div>
+        <div class="about-card reveal">
+          <h3>At a glance</h3>
+          <ul class="about-list">
+            <li>🎯 <span><b>Focus:</b> People analytics &amp; HRIS operations</span></li>
+            <li>🛠️ <span><b>Stack:</b> SQL, Power BI, Excel, Workday</span></li>
+            <li>📍 <span><b>Works with:</b> HR, Finance, IT, Leadership</span></li>
+            <li>✉️ <span><b>Email:</b> bajaakira@gmail.com</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" style="background:var(--bg-soft)">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">Skills</div>
+        <h2>What I bring to the table.</h2>
+        <p>A blend of analytical depth and systems know-how — built for accuracy, speed, and scale.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal"><div class="ico">📊</div><h3>Data Analysis &amp; Reporting</h3><p>Designing metrics, building dashboards, and surfacing trends that drive workforce decisions.</p><div class="tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Excel</span></div></div>
+        <div class="skill-card reveal"><div class="ico">⚙️</div><h3>HRIS Administration</h3><p>Configuring, maintaining, and optimizing HR systems with airtight data integrity.</p><div class="tags"><span class="tag">Workday</span><span class="tag">SuccessFactors</span><span class="tag">BambooHR</span></div></div>
+        <div class="skill-card reveal"><div class="ico">🔄</div><h3>Process Automation</h3><p>Eliminating manual work with automated workflows, validations, and recurring reports.</p><div class="tags"><span class="tag">Python</span><span class="tag">Power Automate</span><span class="tag">APIs</span></div></div>
+        <div class="skill-card reveal"><div class="ico">🧮</div><h3>People Analytics</h3><p>Retention, attrition, DEI, and compensation analysis that informs strategy.</p><div class="tags"><span class="tag">Forecasting</span><span class="tag">Statistics</span><span class="tag">Modeling</span></div></div>
+        <div class="skill-card reveal"><div class="ico">🔐</div><h3>Data Governance</h3><p>Ensuring privacy, compliance, and audit-readiness across all people data.</p><div class="tags"><span class="tag">GDPR</span><span class="tag">Compliance</span><span class="tag">Auditing</span></div></div>
+        <div class="skill-card reveal"><div class="ico">🤝</div><h3>Stakeholder Partnership</h3><p>Translating complex data into clear narratives for HR, Finance, and leadership.</p><div class="tags"><span class="tag">Storytelling</span><span class="tag">Presentation</span><span class="tag">Strategy</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">Selected Work</div>
+        <h2>Outcomes, not just outputs.</h2>
+        <p>A few representative projects. Replace with your own and link to dashboards or write-ups.</p>
+      </div>
+      <div class="proj-grid">
+        <div class="proj reveal"><div class="banner"><span>📈</span></div><div class="body"><h3>Executive People-Analytics Dashboard</h3><p>Unified headcount, attrition, and DEI metrics into one real-time leadership view in Power BI.</p><span class="metric">Adopted org-wide</span></div></div>
+        <div class="proj reveal"><div class="banner"><span>⚡</span></div><div class="body"><h3>HRIS Reporting Automation</h3><p>Replaced manual monthly reporting with automated pipelines and validation checks.</p><span class="metric">−60% reporting time</span></div></div>
+        <div class="proj reveal"><div class="banner"><span>🔍</span></div><div class="body"><h3>Compensation Equity Analysis</h3><p>Statistical pay-gap analysis that informed a company-wide compensation review.</p><span class="metric">Audit-ready</span></div></div>
+        <div class="proj reveal"><div class="banner"><span>🧹</span></div><div class="body"><h3>HRIS Migration &amp; Data Cleanup</h3><p>Led data validation and cleanup across 12k+ records during a platform migration.</p><span class="metric">99% accuracy</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" style="background:var(--bg-soft)">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">Experience</div>
+        <h2>Where I've made an impact.</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal"><div class="tl-date">2022 — Present</div><h3>Senior Data Analyst &amp; HRIS Specialist</h3><div class="org">Company Name · Full-time</div><ul><li>Built executive people-analytics dashboards adopted across leadership.</li><li>Led HRIS optimization, cutting manual reporting time by 60%.</li><li>Maintained 99% data accuracy across 12k+ employee records.</li></ul></div>
+        <div class="tl-item reveal"><div class="tl-date">2019 — 2022</div><h3>HR Data Analyst</h3><div class="org">Company Name · Full-time</div><ul><li>Automated recurring compliance and headcount reports.</li><li>Partnered with Finance on compensation and budget planning.</li><li>Implemented data validation rules reducing entry errors significantly.</li></ul></div>
+        <div class="tl-item reveal"><div class="tl-date">2017 — 2019</div><h3>HRIS Coordinator</h3><div class="org">Company Name · Full-time</div><ul><li>Supported HRIS migration and data cleanup initiatives.</li><li>Created self-service reporting templates for HR business partners.</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact reveal">
+        <h2>Let's build something data-driven.</h2>
+        <p>Open to senior analytics and HRIS roles, consulting, and collaboration. I'd love to hear what you're working on.</p>
+        <div class="contact-actions">
+          <a href="mailto:bajaakira@gmail.com" class="btn btn-light">Email me</a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="btn btn-outline-light">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© <span id="yr"></span> Jel · Senior Data Analyst &amp; HRIS Specialist · bajaakira@gmail.com</div></footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Theme toggle
+  const html=document.documentElement, tb=document.getElementById('themeBtn');
+  const setTheme=t=>{html.setAttribute('data-theme',t);tb.textContent=t==='dark'?'☀️':'🌙'};
+  setTheme(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  tb.addEventListener('click',()=>setTheme(html.getAttribute('data-theme')==='dark'?'light':'dark'));
+
+  // Scroll progress
+  const prog=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'});
+
+  // Reveal + count-up
+  const animate=el=>{const t=+el.dataset.count,s=el.dataset.suffix||'';let n=0;const step=Math.max(1,Math.round(t/40));const id=setInterval(()=>{n+=step;if(n>=t){n=t;clearInterval(id)}el.textContent=n+s},22)};
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll&&e.target.querySelectorAll('[data-count]').forEach(animate);if(e.target.dataset&&e.target.dataset.count)animate(e.target);io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
