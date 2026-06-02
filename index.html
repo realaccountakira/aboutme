@@ -5,9 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>John Lloyd Baja — Senior Data Analyst</title>
 <meta name="description" content="Portfolio of John Lloyd Baja, Senior Data Analyst specializing in People Analytics — turning complex data into actionable insights that drive business and workforce strategy." />
+<meta name="theme-color" content="#121110" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="John Lloyd Baja — Senior Data Analyst" />
+<meta property="og:description" content="Senior Data Analyst specializing in People Analytics & enterprise data — turning complex data into decisions that drive strategy." />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23121110'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='62' fill='%232f4cff' text-anchor='middle' font-weight='700'%3EJ%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,600&amp;display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#f1ece2;
@@ -41,22 +47,19 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s}
-  /* appealing animated background */
-  .bg-fx{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
-  .bg-fx::before{content:"";position:absolute;inset:0;background:
-    radial-gradient(40% 50% at 15% 20%, color-mix(in srgb,var(--accent) 22%,transparent), transparent 70%),
-    radial-gradient(35% 45% at 85% 15%, color-mix(in srgb,var(--accent-2) 26%,transparent), transparent 70%),
-    radial-gradient(45% 50% at 75% 85%, color-mix(in srgb,var(--accent) 16%,transparent), transparent 70%)}
-  .orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;animation:float 18s ease-in-out infinite}
-  .orb.o1{width:420px;height:420px;top:-120px;left:-80px;background:var(--accent)}
-  .orb.o2{width:360px;height:360px;top:30%;right:-100px;background:var(--accent-2);animation-delay:-6s}
-  .orb.o3{width:300px;height:300px;bottom:-100px;left:30%;background:var(--accent);animation-delay:-12s}
-  @keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,25px) scale(.95)}}
-  /* subtle grain/grid overlay */
+  /* refined background: soft glows + dot texture */
+  .bg-fx{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;background:
+    radial-gradient(60% 50% at 80% -5%, color-mix(in srgb,var(--accent) 14%,transparent), transparent 60%),
+    radial-gradient(55% 45% at -5% 35%, color-mix(in srgb,var(--accent-2) 12%,transparent), transparent 60%),
+    radial-gradient(50% 50% at 50% 110%, color-mix(in srgb,var(--accent) 10%,transparent), transparent 60%)}
+  .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;will-change:transform}
+  .orb.o1{width:480px;height:480px;top:-160px;right:-120px;background:var(--accent)}
+  .orb.o2{width:380px;height:380px;top:40%;left:-140px;background:var(--accent-2)}
+  .orb.o3{width:320px;height:320px;bottom:-140px;right:25%;background:var(--accent)}
+  /* fine dot texture */
   .bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;
-    background-image:linear-gradient(color-mix(in srgb,var(--ink) 4%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--ink) 4%,transparent) 1px,transparent 1px);
-    background-size:48px 48px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 80%)}
-  @media(prefers-reduced-motion:reduce){.orb{animation:none}}
+    background-image:radial-gradient(color-mix(in srgb,var(--ink) 7%,transparent) 1.1px,transparent 1.1px);
+    background-size:26px 26px;mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,#000 30%,transparent 85%)}
 
   /* testimonials carousel */
   .carousel{position:relative;overflow:hidden;border-radius:var(--radius)}
@@ -191,6 +194,7 @@
 
   .reveal{opacity:0;transform:translateY(48px) scale(.985);filter:blur(6px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1),filter .8s ease}
   .reveal.in{opacity:1;transform:none;filter:none}
+  .stat.reveal{transform:translateY(16px);filter:none;transition:opacity .45s ease,transform .45s ease}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;filter:none;transition:none}html{scroll-behavior:auto}}
 
   /* scroll progress */
@@ -244,7 +248,7 @@
     <div class="wrap">
       <span class="eyebrow reveal"><span class="dot"></span> Senior Data Analyst · People Analytics</span>
       <h1 class="reveal">Turning complex data into <span class="accent">decisions that drive strategy.</span></h1>
-      <p class="lead reveal">I'm John Lloyd Baja — a Senior Data Analyst with 6+ years of experience leading People Analytics at Fresenius Medical Care, bridging the gap between data and strategy to help organizations make smarter decisions.</p>
+      <p class="lead reveal">I'm John Lloyd Baja — a Senior Data Analyst with 6+ years of experience in people analytics and enterprise data, bridging the gap between data and strategy to help organizations make smarter, faster decisions.</p>
       <div class="hero-actions reveal">
         <a href="#contact" class="btn btn-primary">Let's work together →</a>
         <a href="#work" class="btn btn-ghost">See my work</a>
@@ -274,7 +278,7 @@
       </div>
       <div class="about-grid">
         <div class="reveal">
-          <p>I'm a Senior Data Analyst with 6+ years of experience turning complex data into actionable insights that drive business and workforce strategies. I currently lead People Analytics at Fresenius Medical Care.</p>
+          <p>I'm a Senior Data Analyst with 6+ years of experience turning complex data into actionable insights that drive business and workforce strategies, currently leading People Analytics for a global healthcare organization.</p>
           <p>I specialize in leveraging tools like AWS, Snowflake, Informatica, Tableau, and Excel to deliver impactful reporting and data-driven recommendations — from enterprise data platforms and system integrations to predictive workforce modeling.</p>
           <p>Passionate about bridging the gap between data and strategy, I help organizations make smarter decisions, optimize processes, and achieve measurable results.</p>
         </div>
